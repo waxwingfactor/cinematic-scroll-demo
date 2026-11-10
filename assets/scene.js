@@ -273,6 +273,11 @@
           blocks.push({ left: r.left - st.left, right: r.right - st.left, top: r.top - st.top, bottom: r.bottom - st.top });
         });
       });
+      var railEl = this.el.querySelector('.scene__rail');
+      if (railEl) {
+        var rr = railEl.getBoundingClientRect();
+        blocks.push({ left: rr.left - st.left, right: rr.right - st.left, top: rr.top - st.top, bottom: rr.bottom - st.top });
+      }
       this.pins.forEach(function (p) {
         var tr = self.data.tracks[p.dataset.pin];
         if (!tr) return;
@@ -284,7 +289,8 @@
           var body = p.firstElementChild, bw = body.offsetWidth / 2 + 10, bh = body.offsetHeight + 10;
           for (var k = 0; k < blocks.length; k++) {
             var b = blocks[k];
-            if (x + bw > b.left && x - bw < b.right && y > b.top - 6 && y - bh < b.bottom) { inside = false; break; }
+            // test the label box only; the thin stem below it may pass beside a line of text
+            if (x + bw > b.left && x - bw < b.right && y - 44 > b.top - 6 && y - bh < b.bottom) { inside = false; break; }
           }
         }
         p.style.left = x.toFixed(1) + 'px';
