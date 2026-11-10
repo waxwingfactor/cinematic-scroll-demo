@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Ellory Valley Economic Development (concept demo)</title>
+<meta name="description" content="Concept demo: a three-stage, scroll-driven homepage for an economic development organization.">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-serif-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Ellory Valley Economic Development, home">
+    <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-opacity=".55"/>
+      <path d="M4.5 21.5c4-1 6.2-6.8 9-6.8 2.6 0 3.4 3.6 6 3.6 2.4 0 3.6-2.4 8-3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="21" cy="10" r="2.6" fill="#f4b860"/>
+    </svg>
+    <span><span class="brand__name">Ellory Valley</span><span class="brand__sub">Economic Development</span></span>
+  </a>
+  <button class="site-header__burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav" aria-label="Main">
+    <a href="workforce.html">Workforce</a>
+    <a href="#explore">Demographics</a>
+    <a href="#explore">Infrastructure</a>
+    <a href="#explore">Business</a>
+    <a href="#explore">Industries</a>
+    <a href="#explore">Quality of life</a>
+    <a class="nav__cta" href="#contact">Site selection</a>
+  </nav>
+</header>
+
+<main>
+<!--
+  Three-stage scroll scene.
+  data-dwell  = how long each stage holds, in screen heights (stage 1, 2, 3)
+  data-travel = scroll distance of each transition, in screen heights (1 to 2, 2 to 3)
+  Text blocks are plain HTML. data-range places them in "stage units": 0 = landscape, 1 = blueprint, 2 = community.
+-->
+<section class="scene" id="top" data-scene="home" data-dwell="0.12,0.5,0.5" data-travel="1.5,2.4" aria-label="From open land to a finished community">
+  <div class="scene__sticky">
+    <picture>
+      <source media="(max-aspect-ratio: 9/10)" srcset="media/home/hq/m-0000.webp">
+      <img class="scene__poster" src="media/home/hq/d-0000.webp" alt="Aerial view of a green valley at sunrise, with a small town in the distance" fetchpriority="high">
+    </picture>
+    <canvas class="scene__canvas" aria-hidden="true"></canvas>
+    <div class="scene__shade"></div>
+    <div class="scene__load" aria-hidden="true"></div>
+
+    <!-- labels that follow the picture during the blueprint stage -->
+    <div class="pin" data-pin="main"><div class="pin__body" data-range="0.50 1.20" data-fade="0.05 0.07" data-shift="10"><span class="pin__label">Main Street District<small>Mixed use · 38 acres</small></span><span class="pin__stem"></span><span class="pin__dot"></span></div></div>
+    <div class="pin" data-pin="campus"><div class="pin__body" data-range="0.52 1.20" data-fade="0.05 0.07" data-shift="10"><span class="pin__label">Advanced Manufacturing Park<small>Rail-served · 210 acres</small></span><span class="pin__stem"></span><span class="pin__dot"></span></div></div>
+    <div class="pin" data-pin="training"><div class="pin__body" data-range="0.56 1.20" data-fade="0.05 0.07" data-shift="10"><span class="pin__label">Workforce Training Center<small>Opening phase one</small></span><span class="pin__stem"></span><span class="pin__dot"></span></div></div>
+    <div class="pin" data-pin="park"><div class="pin__body" data-range="0.63 1.20" data-fade="0.05 0.07" data-shift="10"><span class="pin__label">Creekside Park &amp; Trails<small>6 miles of greenway</small></span><span class="pin__stem"></span><span class="pin__dot"></span></div></div>
+    <div class="pin" data-pin="homes"><div class="pin__body" data-range="0.90 1.20" data-fade="0.05 0.07" data-shift="10"><span class="pin__label">Neighborhoods<small>1,150 homes planned</small></span><span class="pin__stem"></span><span class="pin__dot"></span></div></div>
+
+    <div class="stage" data-range="-1 0.15" data-fade="0.1 0.13">
+      <p class="eyebrow fade-up">Ellory Valley · Est. 1887</p>
+      <h1 class="display"><span class="rise"><span>Room to</span></span><span class="rise"><span><em>grow.</em></span></span></h1>
+      <p class="lede fade-up">Open land, clean water and a town that already works. This is where the next chapter of Ellory Valley begins.</p>
+    </div>
+
+    <div class="stage stage--plan" data-range="0.84 1.10" data-fade="0.13 0.09">
+      <p class="eyebrow">The plan</p>
+      <h2 class="display">Designed <em>before</em> it is built.</h2>
+      <p class="lede">Roads, utilities, fiber and parcels are engineered first, so employers can break ground with certainty.</p>
+    </div>
+
+    <div class="stage" data-range="1.90 99" data-fade="0.09 0.1">
+      <p class="eyebrow">The community</p>
+      <h2 class="display">Welcome to <em>Ellory&nbsp;Valley.</em></h2>
+      <p class="lede">A walkable main street, an advanced-manufacturing park and a workforce training center, all minutes from home.</p>
+      <div class="stage__actions">
+        <a class="btn" href="#explore">Explore the community</a>
+        <a class="btn btn--ghost" href="workforce.html">Workforce development
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="scene__rail" aria-label="Stages">
+      <button type="button" data-stop="0">01 Land</button>
+      <button type="button" data-stop="1">02 Plan</button>
+      <button type="button" data-stop="2">03 Community</button>
+    </div>
+
+    <button class="scene__next" type="button" data-labels="See the plan|Build the community|Explore Ellory Valley" aria-label="Continue to the next stage">
+      <span class="scene__next-ring"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3.5v13M4.5 11l5.5 5.5 5.5-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="scene__next-label">See the plan</span>
+    </button>
+  </div>
+</section>
+
+<div class="content">
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="intro">
+        <div class="reveal">
+          <p class="kicker">Why Ellory Valley</p>
+          <h2 class="h2">A place planned for the <em>long run.</em></h2>
+        </div>
+        <p class="reveal">Ellory Valley pairs shovel-ready sites with the things that keep people here: good schools, short commutes and a main street worth walking. Our team works with site selectors from the first call to the ribbon cutting.</p>
+      </div>
+      <div class="figures">
+        <div class="figure reveal"><div class="figure__value">640<small>acres</small></div><p class="figure__label">master-planned and entitled, with utilities at the lot line</p></div>
+        <div class="figure reveal"><div class="figure__value">4,200<small>jobs</small></div><p class="figure__label">projected at full build-out across the manufacturing park and main street</p></div>
+        <div class="figure reveal"><div class="figure__value">18<small>min</small></div><p class="figure__label">to the interstate, with a regional airport 35 minutes away</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band"><img src="media/img/band-community.webp" alt="The finished Ellory Valley community seen from the air" loading="lazy"></div>
+
+  <section class="section section--dark" id="explore">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">Explore</p>
+        <h2 class="h2">Six ways into the <em>same community.</em></h2>
+      </div>
+      <div class="cards">
+        <a class="card reveal" href="workforce.html"><img src="media/img/card-workforce.webp" alt="" loading="lazy"><span class="card__tag card__tag--live">Live in this demo</span><div class="card__body"><span class="card__num">01</span><h3 class="card__title">Workforce Development</h3><p class="card__meta">Step inside the Training Center</p></div></a>
+        <a class="card reveal" href="#explore"><img src="media/img/card-demographics.webp" alt="" loading="lazy"><span class="card__tag">Full build</span><div class="card__body"><span class="card__num">02</span><h3 class="card__title">Demographics</h3><p class="card__meta">Who lives and works here</p></div></a>
+        <a class="card reveal" href="#explore"><img src="media/img/card-infrastructure.webp" alt="" loading="lazy"><span class="card__tag">Full build</span><div class="card__body"><span class="card__num">03</span><h3 class="card__title">Infrastructure</h3><p class="card__meta">Roads, power, water and fiber</p></div></a>
+        <a class="card reveal" href="#explore"><img src="media/img/card-business.webp" alt="" loading="lazy"><span class="card__tag">Full build</span><div class="card__body"><span class="card__num">04</span><h3 class="card__title">Business Opportunities</h3><p class="card__meta">Sites, incentives and space</p></div></a>
+        <a class="card reveal" href="#explore"><img src="media/img/card-industries.webp" alt="" loading="lazy"><span class="card__tag">Full build</span><div class="card__body"><span class="card__num">05</span><h3 class="card__title">Industries</h3><p class="card__meta">Advanced manufacturing and more</p></div></a>
+        <a class="card reveal" href="#explore"><img src="media/img/card-quality.webp" alt="" loading="lazy"><span class="card__tag">Full build</span><div class="card__body"><span class="card__num">06</span><h3 class="card__title">Quality of Life</h3><p class="card__meta">Parks, trails and neighborhoods</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap cta reveal">
+      <h2 class="h2">Looking for a site? <em>Start here.</em></h2>
+      <a class="btn" href="#top">Back to the top</a>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Concept demo.</strong> Ellory Valley is a fictional place, and every name and figure on this page is a placeholder. All imagery was created for this demo.</p>
+    <p>Homepage: three scroll stages. Workforce page: one scroll stage.</p>
+  </div>
+</footer>
+
+<script src="assets/scene-data.js"></script>
+<script src="assets/scene.js"></script>
+</body>
+</html>

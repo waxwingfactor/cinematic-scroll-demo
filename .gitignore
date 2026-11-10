@@ -1,0 +1,9 @@
+# Only the public demo is published.
+/*
+!/.gitignore
+!/.nojekyll
+!/index.html
+!/workforce.html
+!/assets/
+!/media/
+.DS_Store
